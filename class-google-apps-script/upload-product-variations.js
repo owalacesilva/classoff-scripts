@@ -155,14 +155,14 @@ function prepareProductVariantResource(row) {
   }
 
   var attribute_terms = [];
-  if ( typeof row[10] == 'string' || typeof row[10] == 'number' ) {
+  if ( (typeof row[10] == 'string' && row[10].length > 0) || typeof row[10] == 'number' ) {
     attribute_terms.push({
       "type": "product_size",
       "name": row[10], // (K) Tamanho
     });
   }
 
-  if ( typeof row[11] == 'string' ) {
+  if ( typeof row[11] == 'string' && row[11].length > 0 ) {
     attribute_terms.push({
       "type": "product_color",
       "name": row[11], // (L) Cor
@@ -210,7 +210,7 @@ function prepareProductResource(categoryId, row) {
     "accept_swap": row[16], // (Q) Aceita trocas? 0N - 1S
     "has_installments": row[17], // (R) Aceita parcelamentos? 0N - 1S
     "weight": row[18], // (S) Peso
-    "depth": row[19], // (T) Comprimento
+    "length": row[19], // (T) Comprimento
     "width": row[20], // (U) Largura
     "height": row[21], // (V) Altura
     "product_wear": row[22], // (W) Desgaste
